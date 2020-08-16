@@ -8,9 +8,10 @@ namespace MagicSpace.LS
     {
         [SerializeField]
         private List<Transform> lanePositions = new List<Transform>();
-
         [SerializeField]
         private PrefabCollection battlePrefabCollection;
+        [SerializeField]
+        private Vector3 laneRotation;
 
         private List<EnemyController> enemiesInLanes = new List<EnemyController>();
         private List<EnemyController> enemiesToRemove = new List<EnemyController>();
@@ -19,6 +20,7 @@ namespace MagicSpace.LS
         {
             // TODO: replace with object pooling
             var newEnemy = GameObject.Instantiate(battlePrefabCollection.GetRandom(), lanePositions[0]);
+            newEnemy.CachedTransform.eulerAngles = laneRotation;
             enemiesInLanes.Add(newEnemy);
         }
 

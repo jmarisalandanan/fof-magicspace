@@ -10,6 +10,7 @@ namespace MagicSpace.LS
         private int laneIndex = 0;
 
         public int LaneIndex { get { return laneIndex; } }
+        public Transform CachedTransform { get { return cachedTransform; } }
 
         public void SetLaneIndex(int index)
         {

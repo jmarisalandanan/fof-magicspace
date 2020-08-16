@@ -335,6 +335,7 @@ MonoBehaviour:
   - {fileID: 511819033}
   battlePrefabCollection: {fileID: 11400000, guid: f8f8bda7054a2f6419e624541a504481,
     type: 2}
+  laneRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &362691064
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,13 +966,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061669713}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.9994366, z: -0, w: 0.033564024}
+  m_LocalPosition: {x: 0.00000011920929, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1815573050}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 176.15302, z: 0}
 --- !u!23 &1061669715
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1558,6 +1559,7 @@ MonoBehaviour:
   - {fileID: 708299337}
   battlePrefabCollection: {fileID: 11400000, guid: f8f8bda7054a2f6419e624541a504481,
     type: 2}
+  laneRotation: {x: 0, y: -90, z: 0}
 --- !u!1001 &1697795303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1847,6 +1849,7 @@ MonoBehaviour:
   - {fileID: 1061669714}
   battlePrefabCollection: {fileID: 11400000, guid: f8f8bda7054a2f6419e624541a504481,
     type: 2}
+  laneRotation: {x: 0, y: 180, z: 0}
 --- !u!1 &1906954840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1978,6 +1981,7 @@ MonoBehaviour:
   - {fileID: 1906954841}
   battlePrefabCollection: {fileID: 11400000, guid: f8f8bda7054a2f6419e624541a504481,
     type: 2}
+  laneRotation: {x: 0, y: 90, z: 0}
 --- !u!1001 &2031849016
 PrefabInstance:
   m_ObjectHideFlags: 0
