@@ -41,8 +41,11 @@ namespace MagicSpace.LS
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                isSpawning = true;
-                StartCoroutine(StartWaves());
+                if (!isSpawning)
+                {
+                    isSpawning = true;
+                    StartCoroutine(StartWaves());
+                }
             }
         }
     }
