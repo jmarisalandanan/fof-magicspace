@@ -7,9 +7,16 @@ namespace MagicSpace.LS
 {
     public class PlayerController : MonoBehaviour
     {
+        private Transform cachedTransform;
+
         public void Attack(SwipeDirection direction)
         {
-            Debug.Log(direction);
+            cachedTransform.eulerAngles = BattleUtils.GetVectorDirection(direction);
+        }
+
+        private void Awake()
+        {
+            cachedTransform = this.transform;
         }
     }
 }

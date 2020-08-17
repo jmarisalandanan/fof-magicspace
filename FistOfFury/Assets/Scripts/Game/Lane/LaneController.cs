@@ -11,10 +11,14 @@ namespace MagicSpace.LS
         [SerializeField]
         private PrefabCollection battlePrefabCollection;
         [SerializeField]
+        private SwipeDirection laneDirection;
+        [SerializeField]
         private Vector3 laneRotation;
 
         private List<EnemyController> enemiesInLanes = new List<EnemyController>();
         private List<EnemyController> enemiesToRemove = new List<EnemyController>();
+
+        public SwipeDirection LaneDirection { get { return laneDirection; } }
 
         public void Spawn()
         {
@@ -24,14 +28,33 @@ namespace MagicSpace.LS
             enemiesInLanes.Add(newEnemy);
         }
 
+        public void Attack()
+        {
+            var enemyToAttack = enemiesInLanes.Find(enemy => enemy.LaneIndex == lanePositions.Count - 1);
+            if (enemyToAttack != null)
+            {
+                enemyToAttack.Hit();
+                enemiesToRemove.Add(enemyToAttack);
+            }
+        }
+
         public void Push()
         {
+            foreach (var enemy in enemiesToRemove)
+            {
+                enemiesInLanes.Remove(enemy);
+                // TODO: Replace with pooling
+                GameObject.Destroy(enemy.gameObject);
+            }
+            enemiesToRemove.Clear();
+
+
             foreach (var enemy in enemiesInLanes)
             {
                 var newIndex = enemy.LaneIndex + 1;
-                // Sanity check
                 if (newIndex >= lanePositions.Count)
                 {
+                    enemy.Attack();
                     enemiesToRemove.Add(enemy);
                 }
                 else
@@ -40,13 +63,6 @@ namespace MagicSpace.LS
                     enemy.SetLaneIndex(newIndex);
                 }
             }
-
-            foreach (var enemy in enemiesToRemove)
-            {
-                enemiesInLanes.Remove(enemy);
-                GameObject.Destroy(enemy.gameObject);
-            }
-            enemiesToRemove.Clear();
         }
     }
 }

@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 129068628}
   - component: {fileID: 129068629}
   m_Layer: 0
-  m_Name: LaneController
+  m_Name: LaneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,6 +311,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 129068629}
+        m_MethodName: OnPlayerAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &221649147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,6 +386,7 @@ MonoBehaviour:
   - {fileID: 511819033}
   battlePrefabCollection: {fileID: 11400000, guid: f8f8bda7054a2f6419e624541a504481,
     type: 2}
+  laneDirection: 1
   laneRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &362691064
 GameObject:
@@ -1722,6 +1734,7 @@ MonoBehaviour:
   - {fileID: 708299337}
   battlePrefabCollection: {fileID: 11400000, guid: f8f8bda7054a2f6419e624541a504481,
     type: 2}
+  laneDirection: 3
   laneRotation: {x: 0, y: -90, z: 0}
 --- !u!1001 &1697795303
 PrefabInstance:
@@ -2012,6 +2025,7 @@ MonoBehaviour:
   - {fileID: 1061669714}
   battlePrefabCollection: {fileID: 11400000, guid: f8f8bda7054a2f6419e624541a504481,
     type: 2}
+  laneDirection: 0
   laneRotation: {x: 0, y: 180, z: 0}
 --- !u!1 &1906954840
 GameObject:
@@ -2144,6 +2158,7 @@ MonoBehaviour:
   - {fileID: 1906954841}
   battlePrefabCollection: {fileID: 11400000, guid: f8f8bda7054a2f6419e624541a504481,
     type: 2}
+  laneDirection: 2
   laneRotation: {x: 0, y: 90, z: 0}
 --- !u!1001 &2031849016
 PrefabInstance:

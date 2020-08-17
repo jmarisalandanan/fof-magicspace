@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MagicSpace.LS
 {
@@ -24,7 +22,16 @@ namespace MagicSpace.LS
 
         public void Attack()
         {
+            Debug.LogFormat("Enemy: {0} attacks", gameObject.name);
+        }
 
+        public void Hit()
+        {
+            Debug.LogFormat("Enemy: {0} hit", gameObject.name);
+
+            var rot = cachedTransform.localEulerAngles;
+            rot.x = -55;
+            cachedTransform.localEulerAngles = rot;
         }
 
         private void Awake()

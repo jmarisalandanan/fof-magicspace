@@ -8,6 +8,9 @@ namespace MagicSpace.LS
     {
         [SerializeField]
         private List<LaneController> lanes = new List<LaneController>();
+
+        private bool isSpawning = false;
+
         public void SpawnToLane()
         {
             foreach (var lane in lanes)
@@ -19,19 +22,27 @@ namespace MagicSpace.LS
             laneToSpawn.Spawn();
         }
 
+        public void OnPlayerAttack(SwipeDirection direction)
+        {
+            var targetedLane = lanes.Find((lane) => lane.LaneDirection == direction);
+            targetedLane.Attack();
+        }
+
+        private IEnumerator StartWaves()
+        {
+            while (isSpawning)
+            {
+                yield return new WaitForSeconds(1f);
+                SpawnToLane();
+            }
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                SpawnToLane();
-            }
-
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                foreach (var lane in lanes)
-                {
-                    lane.Push();
-                }
+                isSpawning = true;
+                StartCoroutine(StartWaves());
             }
         }
     }
