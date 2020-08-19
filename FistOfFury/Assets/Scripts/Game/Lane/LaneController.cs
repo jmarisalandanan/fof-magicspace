@@ -27,12 +27,12 @@ namespace MagicSpace.LS
             enemiesInLanes.Add(newEnemy);
         }
 
-        public void Attack()
+        public void Attack(int animIndex)
         {
             var enemyToAttack = enemiesInLanes.Find(enemy => enemy.LaneIndex == lanePositions.Count - 1);
             if (enemyToAttack != null)
             {
-                enemyToAttack.Hit();
+                enemyToAttack.Hit(animIndex);
                 enemiesToRemove.Add(enemyToAttack);
             }
         }

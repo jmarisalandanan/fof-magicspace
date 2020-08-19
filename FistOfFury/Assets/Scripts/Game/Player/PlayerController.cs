@@ -11,10 +11,10 @@ namespace MagicSpace.LS
         private List<string> attackAnimations = new List<string>();
         private Transform cachedTransform;
 
-        public void Attack(SwipeDirection direction)
+        public void Attack(SwipeDirection direction, int animationIndex)
         {
             cachedTransform.eulerAngles = BattleUtils.GetVectorDirection(direction);
-            playerAnimator.Play(attackAnimations[Random.Range(0, attackAnimations.Count)]);
+            playerAnimator.Play(attackAnimations[animationIndex]);
         }
 
         private void Awake()
@@ -22,6 +22,7 @@ namespace MagicSpace.LS
             cachedTransform = this.transform;
             attackAnimations.Add("Attack_1");
             attackAnimations.Add("Attack_2");
+            attackAnimations.Add("Attack_3");
         }
     }
 }

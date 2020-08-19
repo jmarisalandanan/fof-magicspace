@@ -4,10 +4,14 @@ using UnityEngine;
 
 namespace MagicSpace.LS
 {
+    //TODO: Replace with GameManager
     public class LaneManager : MonoBehaviour
     {
         [SerializeField]
         private List<LaneController> lanes = new List<LaneController>();
+
+        [SerializeField]
+        private PlayerController playerController;
 
         private bool isSpawning = false;
 
@@ -22,10 +26,17 @@ namespace MagicSpace.LS
             laneToSpawn.Spawn();
         }
 
+        int animIndex = 0;
         public void OnPlayerAttack(SwipeDirection direction)
         {
+            playerController.Attack(direction, animIndex);
             var targetedLane = lanes.Find((lane) => lane.LaneDirection == direction);
-            targetedLane.Attack();
+            targetedLane.Attack(animIndex);
+            animIndex++;
+            if (animIndex == 3)
+            {
+                animIndex = 0;
+            }
         }
 
         private IEnumerator StartWaves()

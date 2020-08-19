@@ -1,10 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace MagicSpace.LS
 {
     public class EnemyController : MonoBehaviour
     {
+        [SerializeField]
+        private Animation enemyAnimator;
+
         private Transform cachedTransform;
+        private List<string> runAnimations = new List<string>();
+        private List<string> hitAnimations = new List<string>();
         private int laneIndex = 0;
 
         public int LaneIndex { get { return laneIndex; } }
@@ -18,6 +24,7 @@ namespace MagicSpace.LS
         public void Move(Vector3 newPosition)
         {
             cachedTransform.position = newPosition;
+            enemyAnimator.Play(runAnimations[Random.Range(0, runAnimations.Count)]);
         }
 
         public void Attack()
@@ -25,18 +32,22 @@ namespace MagicSpace.LS
             Debug.LogFormat("Enemy: {0} attacks", gameObject.name);
         }
 
-        public void Hit()
+        public void Hit(int animIndex)
         {
             Debug.LogFormat("Enemy: {0} hit", gameObject.name);
-
-            var rot = cachedTransform.localEulerAngles;
-            rot.x = -55;
-            cachedTransform.localEulerAngles = rot;
+            enemyAnimator.Play(hitAnimations[animIndex]);
         }
 
         private void Awake()
         {
             cachedTransform = this.transform;
+            runAnimations.Add("Run_1");
+            runAnimations.Add("Run_2");
+            hitAnimations.Add("Hit_1");
+            hitAnimations.Add("Hit_2");
+            hitAnimations.Add("Hit_3");
+
+            enemyAnimator.Play(runAnimations[Random.Range(0, runAnimations.Count)]);
         }
     }
 }
