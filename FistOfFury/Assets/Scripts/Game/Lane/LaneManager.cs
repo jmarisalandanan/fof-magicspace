@@ -7,11 +7,16 @@ namespace MagicSpace.LS
     //TODO: Replace with GameManager
     public class LaneManager : MonoBehaviour
     {
+        private const float DIFFICULTY_WAVE = 0.15f;
+
         [SerializeField]
         private List<LaneController> lanes = new List<LaneController>();
 
         [SerializeField]
         private PlayerController playerController;
+
+        [SerializeField]
+        private float spawningCurve;
 
         private bool isSpawning = false;
 
@@ -28,6 +33,12 @@ namespace MagicSpace.LS
             }
         }
 
+        public void IncreaseDifficulty()
+        {
+            spawningCurve -= DIFFICULTY_WAVE;
+            Debug.Log("Increasing dificulty: " + spawningCurve);
+        }
+
         private void SpawnToLane()
         {
             foreach (var lane in lanes)
@@ -41,9 +52,10 @@ namespace MagicSpace.LS
 
         private IEnumerator StartWaves()
         {
+            spawningCurve = 1.5f;
             while (isSpawning)
             {
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(spawningCurve);
                 SpawnToLane();
             }
         }
