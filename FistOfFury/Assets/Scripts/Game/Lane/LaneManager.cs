@@ -15,17 +15,6 @@ namespace MagicSpace.LS
 
         private bool isSpawning = false;
 
-        public void SpawnToLane()
-        {
-            foreach (var lane in lanes)
-            {
-                lane.Push();
-            }
-
-            var laneToSpawn = lanes[Random.Range(0, lanes.Count)];
-            laneToSpawn.Spawn();
-        }
-
         int animIndex = 0;
         public void OnPlayerAttack(SwipeDirection direction)
         {
@@ -37,6 +26,17 @@ namespace MagicSpace.LS
             {
                 animIndex = 0;
             }
+        }
+
+        private void SpawnToLane()
+        {
+            foreach (var lane in lanes)
+            {
+                lane.Push();
+            }
+
+            var laneToSpawn = lanes[Random.Range(0, lanes.Count)];
+            laneToSpawn.Spawn();
         }
 
         private IEnumerator StartWaves()

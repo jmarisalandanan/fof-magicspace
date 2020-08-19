@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace MagicSpace.LS
 {
@@ -15,6 +16,8 @@ namespace MagicSpace.LS
 
         public int LaneIndex { get { return laneIndex; } }
         public Transform CachedTransform { get { return cachedTransform; } }
+
+        public UnityEvent OnEnemyHit;
 
         public void SetLaneIndex(int index)
         {
@@ -36,6 +39,7 @@ namespace MagicSpace.LS
         {
             Debug.LogFormat("Enemy: {0} hit", gameObject.name);
             enemyAnimator.Play(hitAnimations[animIndex]);
+            OnEnemyHit.Invoke();
         }
 
         private void Awake()

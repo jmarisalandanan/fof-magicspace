@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace MagicSpace.LS
 {
@@ -19,6 +20,8 @@ namespace MagicSpace.LS
 
         public SwipeDirection LaneDirection { get { return laneDirection; } }
 
+        public UnityEvent OnEnemyHit;
+
         public void Spawn()
         {
             // TODO: replace with object pooling
@@ -32,6 +35,7 @@ namespace MagicSpace.LS
             var enemyToAttack = enemiesInLanes.Find(enemy => enemy.LaneIndex == lanePositions.Count - 1);
             if (enemyToAttack != null)
             {
+                OnEnemyHit.Invoke();
                 enemyToAttack.Hit(animIndex);
                 enemiesToRemove.Add(enemyToAttack);
             }

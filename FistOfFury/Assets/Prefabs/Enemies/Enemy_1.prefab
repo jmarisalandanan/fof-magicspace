@@ -65,6 +65,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnimator: {fileID: 6512446053761990782}
+  OnEnemyHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1995865997529865768
 PrefabInstance:
   m_ObjectHideFlags: 0
