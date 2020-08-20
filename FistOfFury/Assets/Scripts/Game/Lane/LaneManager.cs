@@ -60,6 +60,12 @@ namespace MagicSpace.LS
             }
         }
 
+        private void Start()
+        {
+            isSpawning = true;
+            StartCoroutine(StartWaves());
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))

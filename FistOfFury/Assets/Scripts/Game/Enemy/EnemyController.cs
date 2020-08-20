@@ -13,6 +13,7 @@ namespace MagicSpace.LS
         private List<string> runAnimations = new List<string>();
         private List<string> hitAnimations = new List<string>();
         private int laneIndex = 0;
+        private bool isDead = false;
 
         public int LaneIndex { get { return laneIndex; } }
         public Transform CachedTransform { get { return cachedTransform; } }
@@ -37,9 +38,12 @@ namespace MagicSpace.LS
 
         public void Hit(int animIndex)
         {
-            Debug.LogFormat("Enemy: {0} hit", gameObject.name);
             enemyAnimator.Play(hitAnimations[animIndex]);
-            OnEnemyHit.Invoke();
+            if (!isDead)
+            {
+                OnEnemyHit.Invoke();
+            }
+            isDead = true;
         }
 
         private void Awake()
