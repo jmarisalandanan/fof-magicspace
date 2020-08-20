@@ -20,6 +20,7 @@ namespace MagicSpace.LS
 
         public SwipeDirection LaneDirection { get { return laneDirection; } }
 
+        public UnityEvent OnEnemyAttack;
         public UnityEvent OnEnemyHit;
 
         public void Spawn()
@@ -33,7 +34,7 @@ namespace MagicSpace.LS
         public void Attack(int animIndex)
         {
             var enemyToAttack = enemiesInLanes.Find(enemy => enemy.LaneIndex == lanePositions.Count - 1);
-            if (enemyToAttack != null)
+            if (enemyToAttack != null && !enemyToAttack.IsDead)
             {
                 OnEnemyHit.Invoke();
                 enemyToAttack.Hit(animIndex);
@@ -51,13 +52,13 @@ namespace MagicSpace.LS
             }
             enemiesToRemove.Clear();
 
-
             foreach (var enemy in enemiesInLanes)
             {
                 var newIndex = enemy.LaneIndex + 1;
                 if (newIndex >= lanePositions.Count)
                 {
                     enemy.Attack();
+                    OnEnemyAttack.Invoke();
                     enemiesToRemove.Add(enemy);
                 }
                 else

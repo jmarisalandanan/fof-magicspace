@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace MagicSpace.LS
 {
@@ -20,6 +21,8 @@ namespace MagicSpace.LS
 
         private bool isSpawning = false;
 
+        public UnityEvent OnPlayerDead;
+
         int animIndex = 0;
         public void OnPlayerAttack(SwipeDirection direction)
         {
@@ -31,6 +34,12 @@ namespace MagicSpace.LS
             {
                 animIndex = 0;
             }
+        }
+
+        public void OnPlayerHit()
+        {
+            isSpawning = false;
+            OnPlayerDead.Invoke();
         }
 
         public void IncreaseDifficulty()

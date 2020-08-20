@@ -16,9 +16,8 @@ namespace MagicSpace.LS
         private bool isDead = false;
 
         public int LaneIndex { get { return laneIndex; } }
+        public bool IsDead { get { return isDead; } }
         public Transform CachedTransform { get { return cachedTransform; } }
-
-        public UnityEvent OnEnemyHit;
 
         public void SetLaneIndex(int index)
         {
@@ -39,10 +38,6 @@ namespace MagicSpace.LS
         public void Hit(int animIndex)
         {
             enemyAnimator.Play(hitAnimations[animIndex]);
-            if (!isDead)
-            {
-                OnEnemyHit.Invoke();
-            }
             isDead = true;
         }
 
