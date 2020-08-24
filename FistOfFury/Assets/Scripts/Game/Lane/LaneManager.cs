@@ -23,7 +23,7 @@ namespace MagicSpace.LS
 
         public UnityEvent OnPlayerDead;
 
-        int animIndex = 0;
+        private int animIndex = 0;
         public void OnPlayerAttack(SwipeDirection direction)
         {
             playerController.Attack(direction, animIndex);
@@ -45,7 +45,7 @@ namespace MagicSpace.LS
         public void IncreaseDifficulty()
         {
             spawningCurve -= DIFFICULTY_WAVE;
-            Debug.Log("Increasing dificulty: " + spawningCurve);
+            Debug.Log("Increasing difficulty: " + spawningCurve);
         }
 
         private void SpawnToLane()
@@ -77,13 +77,10 @@ namespace MagicSpace.LS
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !isSpawning)
             {
-                if (!isSpawning)
-                {
-                    isSpawning = true;
-                    StartCoroutine(StartWaves());
-                }
+                isSpawning = true;
+                StartCoroutine(StartWaves());
             }
         }
     }

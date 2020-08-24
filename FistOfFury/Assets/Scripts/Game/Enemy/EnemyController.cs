@@ -9,24 +9,21 @@ namespace MagicSpace.LS
         [SerializeField]
         private Animation enemyAnimator;
 
-        private Transform cachedTransform;
-        private List<string> runAnimations = new List<string>();
-        private List<string> hitAnimations = new List<string>();
-        private int laneIndex = 0;
-        private bool isDead = false;
+        private readonly List<string> runAnimations = new List<string>();
+        private readonly List<string> hitAnimations = new List<string>();
 
-        public int LaneIndex { get { return laneIndex; } }
-        public bool IsDead { get { return isDead; } }
-        public Transform CachedTransform { get { return cachedTransform; } }
+        public int LaneIndex { get; private set; } = 0;
+        public bool IsDead { get; private set; } = false;
+        public Transform CachedTransform { get; private set; }
 
         public void SetLaneIndex(int index)
         {
-            laneIndex = index;
+            LaneIndex = index;
         }
 
         public void Move(Vector3 newPosition)
         {
-            cachedTransform.position = newPosition;
+            CachedTransform.position = newPosition;
             enemyAnimator.Play(runAnimations[Random.Range(0, runAnimations.Count)]);
         }
 
@@ -38,12 +35,12 @@ namespace MagicSpace.LS
         public void Hit(int animIndex)
         {
             enemyAnimator.Play(hitAnimations[animIndex]);
-            isDead = true;
+            IsDead = true;
         }
 
         private void Awake()
         {
-            cachedTransform = this.transform;
+            CachedTransform = this.transform;
             runAnimations.Add("Run_1");
             runAnimations.Add("Run_2");
             hitAnimations.Add("Hit_1");
