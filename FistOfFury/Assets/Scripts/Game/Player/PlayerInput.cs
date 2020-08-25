@@ -22,25 +22,11 @@ namespace MagicSpace.LS
             Vector3 direction = (finger.LastScreenPosition - finger.StartScreenPosition).normalized;
             if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
             {
-                if (direction.x > 0)
-                {
-                    OnPlayerSwipe.Invoke(SwipeDirection.Right);
-                }
-                else
-                {
-                    OnPlayerSwipe.Invoke(SwipeDirection.Left);
-                }
+                OnPlayerSwipe.Invoke(direction.x > 0 ? SwipeDirection.Right : SwipeDirection.Left);
             }
             else
             {
-                if (direction.y > 0)
-                {
-                    OnPlayerSwipe.Invoke(SwipeDirection.Up);
-                }
-                else
-                {
-                    OnPlayerSwipe.Invoke(SwipeDirection.Down);
-                }
+                OnPlayerSwipe.Invoke(direction.y > 0 ? SwipeDirection.Up : SwipeDirection.Down);
             }
             Debug.DrawLine(this.transform.position, this.transform.position + direction * 10, Color.red, 3);
         }

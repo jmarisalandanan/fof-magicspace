@@ -12,8 +12,6 @@ namespace MagicSpace.LS
 
         private int currentScore = 0;
 
-        public int CurrentScore { get { return currentScore; } }
-
         public UnityEvent OnScoringThresholdReached;
 
         public void AddScore()

@@ -34,12 +34,13 @@ namespace MagicSpace.LS
         public void Attack(int animIndex)
         {
             var enemyToAttack = enemiesInLanes.Find(enemy => enemy.LaneIndex == lanePositions.Count - 1);
-            if (enemyToAttack != null && !enemyToAttack.IsDead)
+            if (enemyToAttack == null || enemyToAttack.IsDead)
             {
-                OnEnemyHit.Invoke();
-                enemyToAttack.Hit(animIndex);
-                enemiesToRemove.Add(enemyToAttack);
+                return;
             }
+            OnEnemyHit.Invoke();
+            enemyToAttack.Hit(animIndex);
+            enemiesToRemove.Add(enemyToAttack);
         }
 
         public void Push()
