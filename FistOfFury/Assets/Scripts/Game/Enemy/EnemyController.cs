@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using MagicSpace.Extensions;
 using UnityEngine.Events;
 
 namespace MagicSpace.LS
@@ -9,22 +10,18 @@ namespace MagicSpace.LS
         [SerializeField]
         private Animator enemyAnimator;
 
-        private Transform cachedTransform;
-        private int laneIndex = 0;
-        private bool isDead = false;
-
-        public int LaneIndex { get { return laneIndex; } }
-        public bool IsDead { get { return isDead; } }
-        public Transform CachedTransform { get { return cachedTransform; } }
+        public int LaneIndex { get; private set; } = 0;
+        public bool IsDead { get; private set; } = false;
+        public Transform CachedTransform { get; private set; }
 
         public void SetLaneIndex(int index)
         {
-            laneIndex = index;
+            LaneIndex = index;
         }
 
         public void Move(Vector3 newPosition)
         {
-            cachedTransform.position = newPosition;
+            CachedTransform.position = newPosition;
         }
 
         public void Attack()
@@ -34,12 +31,12 @@ namespace MagicSpace.LS
 
         public void Hit(int animIndex)
         {
-            isDead = true;
+            IsDead = true;
         }
 
         private void Awake()
         {
-            cachedTransform = this.transform;
+            CachedTransform = this.transform;
         }
     }
 }
