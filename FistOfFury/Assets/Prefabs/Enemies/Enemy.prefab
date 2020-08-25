@@ -29,6 +29,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9114957306945387981}
   - component: {fileID: 9114957306945387980}
+  - component: {fileID: 4617783333256599868}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -64,6 +65,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnimator: {fileID: 1341840551}
+--- !u!136 &4617783333256599868
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9114957306945387983}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.1, z: 0}
 --- !u!1001 &700215209
 PrefabInstance:
   m_ObjectHideFlags: 0
