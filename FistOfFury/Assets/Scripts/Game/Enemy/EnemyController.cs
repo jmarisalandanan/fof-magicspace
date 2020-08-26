@@ -16,27 +16,27 @@ namespace MagicSpace.LS
         public int LaneIndex { get; private set; }
         public bool IsDead { get; private set; }
         public Transform CachedTransform { get; private set; }
-
-        public void SetLaneIndex(int index)
+        
+        public void Move(bool value)
         {
-            LaneIndex = index;
-        }
-
-        public void Move(Vector3 newPosition)
-        {
-            enemyAnimator.SetBool(WalkHashValue, true);
+            enemyAnimator.SetBool(WalkHashValue, value);
         }
 
         public void Attack()
         {
+            if (IsDead)
+            {
+                return;
+            }
             Debug.LogFormat("Enemy: {0} attacks", gameObject.name);
-            enemyAnimator.Play(AttackHashValue);
+            enemyAnimator.SetTrigger(AttackHashValue);
         }
 
-        public void Hit(int animIndex)
+        public void Hit()
         {
+            Debug.Log("Hit");
             IsDead = true;
-            enemyAnimator.Play(HitHashValue);
+            enemyAnimator.SetTrigger(HitHashValue);
         }
 
         private void Awake()

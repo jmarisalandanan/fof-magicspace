@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MagicSpace.Extensions;
 using UnityEngine;
 
 namespace MagicSpace.LS
@@ -8,13 +9,17 @@ namespace MagicSpace.LS
         [SerializeField]
         private Animation playerAnimator;
 
-        private List<string> attackAnimations = new List<string>();
+        [SerializeField] 
+        private GameObject hitCollider;
+
+        private readonly List<string> attackAnimations = new List<string>();
         private Transform cachedTransform;
 
-        public void Attack(SwipeDirection direction, int animationIndex)
+        public void Attack(SwipeDirection direction)
         {
             cachedTransform.eulerAngles = BattleUtils.GetVectorDirection(direction);
-            playerAnimator.Play(attackAnimations[animationIndex]);
+            playerAnimator.Play(attackAnimations.PickRandom());
+            hitCollider.gameObject.SetActive(true);
         }
 
         private void Awake()
