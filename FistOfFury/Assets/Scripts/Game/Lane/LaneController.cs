@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace MagicSpace.LS
@@ -25,13 +23,11 @@ namespace MagicSpace.LS
 
         public void OnPlayerAttack()
         {
-            Debug.Log("Attacking enemy in lane: " + laneDirection);
             var enemyToAttack = enemiesInLanes.Find(enemy => enemy.LaneIndex == lanePositions.Count - 1);
             if (enemyToAttack != null)
             {
                 enemyToAttack.Hit();
-                enemiesInLanes.Remove(enemyToAttack);
-                Destroy(enemyToAttack);
+                enemiesToRemove.Add(enemyToAttack);
             }
         }
 

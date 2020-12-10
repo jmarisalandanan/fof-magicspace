@@ -1,6 +1,5 @@
 using MagicSpace.LS;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace MagicSpace.Foundation
 {
