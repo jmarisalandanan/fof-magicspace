@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4639940b1b25e3e468b5096a2ea2c7f2, type: 3}
-  m_Name: EnemyPrefabCollection
+  m_Script: {fileID: 11500000, guid: e4b024c7c4094b9ca606d52f4486e370, type: 3}
+  m_Name: PlayerSwipeEvent
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 9114957306945387980, guid: cb53ff4d6398518409d9a877b5e61d1c, type: 3}

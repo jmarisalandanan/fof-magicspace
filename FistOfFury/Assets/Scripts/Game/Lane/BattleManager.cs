@@ -7,14 +7,13 @@ namespace MagicSpace.LS
     public class BattleManager : MonoBehaviour
     {
         [SerializeField] private List<LaneController> lanes;
-        [SerializeField] private PlayerController playerController;
 
         private bool isSpawning = false;
 
-        // Consider transferring to other script
-        public void OnPlayerAttack(SwipeDirection swipeDirection)
+        public void OnPlayerAttack(SwipeDirection direction)
         {
-
+            var targetedLane = lanes.Find((lane) => lane.LaneDirection == direction);
+            targetedLane.OnPlayerAttack();
         }
 
         public void StartBattle()
@@ -27,11 +26,11 @@ namespace MagicSpace.LS
         {
             foreach (var lane in lanes)
             {
-                // lane.Push();
+                lane.Push();
             }
 
             var laneToSpawn = lanes[Random.Range(0, lanes.Count)];
-            // laneToSpawn.Spawn();
+            laneToSpawn.Spawn();
         }
 
         private IEnumerator StartWaves()

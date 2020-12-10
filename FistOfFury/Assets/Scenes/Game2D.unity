@@ -121,6 +121,108 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &284052482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 284052483}
+  - component: {fileID: 284052484}
+  m_Layer: 0
+  m_Name: Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &284052483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284052482}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 344464208}
+  - {fileID: 1326405563}
+  m_Father: {fileID: 1058606701}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &284052484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284052482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f9ee83ad64b44d8e9804022b8dc53d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lanePositions:
+  - {fileID: 344464208}
+  - {fileID: 1326405563}
+  laneDirection: 3
+  enemyPrefab: {fileID: -7671238139188431437, guid: 098b373fe28314f5ba451388e7352739,
+    type: 3}
+--- !u!1 &287547232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 287547233}
+  - component: {fileID: 287547234}
+  m_Layer: 0
+  m_Name: Up
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &287547233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287547232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 974874172}
+  - {fileID: 631987219}
+  m_Father: {fileID: 1058606701}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &287547234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287547232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f9ee83ad64b44d8e9804022b8dc53d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lanePositions:
+  - {fileID: 974874172}
+  - {fileID: 631987219}
+  laneDirection: 0
+  enemyPrefab: {fileID: -7671238139188431437, guid: 098b373fe28314f5ba451388e7352739,
+    type: 3}
 --- !u!1 &344464207
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +234,7 @@ GameObject:
   - component: {fileID: 344464208}
   - component: {fileID: 344464209}
   m_Layer: 0
-  m_Name: GroundRight_2
+  m_Name: GroundRight_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,8 +251,8 @@ Transform:
   m_LocalPosition: {x: 10.253794, y: -3.3916998, z: 3.4589832}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1058606701}
-  m_RootOrder: 2
+  m_Father: {fileID: 284052483}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &344464209
 SpriteRenderer:
@@ -213,7 +315,7 @@ GameObject:
   - component: {fileID: 631987219}
   - component: {fileID: 631987220}
   m_Layer: 0
-  m_Name: GroundUp_1
+  m_Name: GroundUp_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,8 +332,8 @@ Transform:
   m_LocalPosition: {x: 3.853794, y: -0.19169974, z: 3.4589832}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1058606701}
-  m_RootOrder: 5
+  m_Father: {fileID: 287547233}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &631987220
 SpriteRenderer:
@@ -364,36 +466,6 @@ Transform:
   m_Father: {fileID: 1058606701}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &689811974
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 689811975}
-  m_Layer: 0
-  m_Name: Game
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &689811975
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 689811974}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &692270621
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +477,7 @@ GameObject:
   - component: {fileID: 692270622}
   - component: {fileID: 692270623}
   m_Layer: 0
-  m_Name: GroundLeft_1
+  m_Name: GroundLeft_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -422,8 +494,8 @@ Transform:
   m_LocalPosition: {x: 0.65379405, y: -3.3916998, z: 3.4589832}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1058606701}
-  m_RootOrder: 3
+  m_Father: {fileID: 2082974449}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &692270623
 SpriteRenderer:
@@ -486,7 +558,7 @@ GameObject:
   - component: {fileID: 844487215}
   - component: {fileID: 844487216}
   m_Layer: 0
-  m_Name: GroundDown_2
+  m_Name: GroundDown_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -503,8 +575,8 @@ Transform:
   m_LocalPosition: {x: 3.853794, y: -9.7917, z: 3.4589832}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1058606701}
-  m_RootOrder: 8
+  m_Father: {fileID: 1916005162}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &844487216
 SpriteRenderer:
@@ -567,7 +639,7 @@ GameObject:
   - component: {fileID: 974874172}
   - component: {fileID: 974874173}
   m_Layer: 0
-  m_Name: GroundUp_2
+  m_Name: GroundUp_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -584,8 +656,8 @@ Transform:
   m_LocalPosition: {x: 3.853794, y: 3.0083003, z: 3.4589832}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1058606701}
-  m_RootOrder: 6
+  m_Father: {fileID: 287547233}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &974874173
 SpriteRenderer:
@@ -682,7 +754,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnPlayerSwipe:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e5cac6f8a2566409b98122d4733482c3, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1058606700
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,8 +775,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1058606701}
+  - component: {fileID: 1058606702}
+  - component: {fileID: 1058606703}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: Battle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -711,17 +796,57 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 650744237}
-  - {fileID: 1326405563}
-  - {fileID: 344464208}
-  - {fileID: 692270622}
-  - {fileID: 2017237832}
-  - {fileID: 631987219}
-  - {fileID: 974874172}
-  - {fileID: 1696381132}
-  - {fileID: 844487215}
+  - {fileID: 284052483}
+  - {fileID: 1916005162}
+  - {fileID: 2082974449}
+  - {fileID: 287547233}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1058606702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058606700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74cf424015084b43ab69073998509d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lanes:
+  - {fileID: 284052484}
+  - {fileID: 1916005163}
+  - {fileID: 2082974450}
+  - {fileID: 287547234}
+--- !u!114 &1058606703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058606700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c28a41bfb8b48748d186b5a95ffeafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipeEvent: {fileID: 11400000, guid: e5cac6f8a2566409b98122d4733482c3, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1058606703}
+        m_MethodName: OnEventRaised
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1326405562
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,7 +858,7 @@ GameObject:
   - component: {fileID: 1326405563}
   - component: {fileID: 1326405564}
   m_Layer: 0
-  m_Name: GroundRight_1
+  m_Name: GroundRight_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -750,7 +875,7 @@ Transform:
   m_LocalPosition: {x: 7.053794, y: -3.3916998, z: 3.4589832}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1058606701}
+  m_Father: {fileID: 284052483}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1326405564
@@ -895,7 +1020,7 @@ GameObject:
   - component: {fileID: 1696381132}
   - component: {fileID: 1696381133}
   m_Layer: 0
-  m_Name: GroundDown_1
+  m_Name: GroundDown_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -912,8 +1037,8 @@ Transform:
   m_LocalPosition: {x: 3.853794, y: -6.5916996, z: 3.4589832}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1058606701}
-  m_RootOrder: 7
+  m_Father: {fileID: 1916005162}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1696381133
 SpriteRenderer:
@@ -1048,6 +1173,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1916005161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1916005162}
+  - component: {fileID: 1916005163}
+  m_Layer: 0
+  m_Name: Down
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1916005162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916005161}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 844487215}
+  - {fileID: 1696381132}
+  m_Father: {fileID: 1058606701}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1916005163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916005161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f9ee83ad64b44d8e9804022b8dc53d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lanePositions:
+  - {fileID: 844487215}
+  - {fileID: 1696381132}
+  laneDirection: 1
+  enemyPrefab: {fileID: -7671238139188431437, guid: 098b373fe28314f5ba451388e7352739,
+    type: 3}
 --- !u!1 &2017237831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,7 +1235,7 @@ GameObject:
   - component: {fileID: 2017237832}
   - component: {fileID: 2017237833}
   m_Layer: 0
-  m_Name: GroundLeft_2
+  m_Name: GroundLeft_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1076,8 +1252,8 @@ Transform:
   m_LocalPosition: {x: -2.546206, y: -3.3916998, z: 3.4589832}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1058606701}
-  m_RootOrder: 4
+  m_Father: {fileID: 2082974449}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2017237833
 SpriteRenderer:
@@ -1129,6 +1305,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2082974448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2082974449}
+  - component: {fileID: 2082974450}
+  m_Layer: 0
+  m_Name: Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2082974449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082974448}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2017237832}
+  - {fileID: 692270622}
+  m_Father: {fileID: 1058606701}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2082974450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082974448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f9ee83ad64b44d8e9804022b8dc53d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lanePositions:
+  - {fileID: 2017237832}
+  - {fileID: 692270622}
+  laneDirection: 2
+  enemyPrefab: {fileID: -7671238139188431437, guid: 098b373fe28314f5ba451388e7352739,
+    type: 3}
 --- !u!1 &2122085800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,6 +1365,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2122085801}
+  - component: {fileID: 2122085802}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1161,3 +1389,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2122085802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122085800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4319a74640534443b67d48ac2c0b930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 0}
+  hitCollider: {fileID: 0}
