@@ -1,43 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using MagicSpace.Extensions;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace MagicSpace.LS
 {
-    //TODO: Replace with GameManager
     public class BattleManager : MonoBehaviour
     {
-        [SerializeField]
-        private List<Transform> startPositions = new List<Transform>();
-        [SerializeField] 
-        private EnemyController enemyPrefab;
+        [SerializeField] private List<LaneController> lanes;
+        [SerializeField] private PlayerController playerController;
 
-        private bool isWaveSpawning = false;
+        private bool isSpawning = false;
 
-        private IEnumerator SpawnEnemies()
+        // Consider transferring to other script
+        public void OnPlayerAttack(SwipeDirection swipeDirection)
         {
-            while (isWaveSpawning)
+
+        }
+
+        public void StartBattle()
+        {
+            isSpawning = true;
+            StartCoroutine(StartWaves());
+        }
+
+        private void SpawnToLane()
+        {
+            foreach (var lane in lanes)
             {
-                yield return new WaitForSeconds(Random.Range(3,5));
-                SpawnEnemy();
+                // lane.Push();
+            }
+
+            var laneToSpawn = lanes[Random.Range(0, lanes.Count)];
+            // laneToSpawn.Spawn();
+        }
+
+        private IEnumerator StartWaves()
+        {
+            // spawningCurve = 1.5f;
+            while (isSpawning)
+            {
+                yield return new WaitForSeconds(1.5f);
+                SpawnToLane();
             }
         }
 
-        private void SpawnEnemy()
+        private void Start()
         {
-            var startPos = startPositions.PickRandom();
-            var enemy = Instantiate(enemyPrefab, startPos);
-            enemy.Move(true);
-        }
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space) && !isWaveSpawning)
-            {
-                isWaveSpawning = true;
-                StartCoroutine(SpawnEnemies());
-            }
+            // TODO: Add trigger to starting battle
+            StartBattle();
         }
     }
 }
