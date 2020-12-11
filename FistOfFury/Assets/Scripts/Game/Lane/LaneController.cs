@@ -21,6 +21,19 @@ namespace MagicSpace.LS
             enemiesInLanes.Add(newEnemy);
         }
 
+        public void ClearLanes()
+        {
+            // Replace with pooling
+            enemiesToRemove = new List<EnemyController>(enemiesInLanes);
+            foreach (var enemy in enemiesToRemove)
+            {
+                enemiesInLanes.Remove(enemy);
+                Destroy(enemy.gameObject);
+            }
+            enemiesInLanes.Clear();
+            enemiesToRemove.Clear();
+        }
+
         public void OnPlayerAttack()
         {
             var enemyToAttack = enemiesInLanes.Find(enemy => enemy.LaneIndex == lanePositions.Count - 1);

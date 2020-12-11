@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace MagicSpace.LS
 {
@@ -10,6 +11,8 @@ namespace MagicSpace.LS
 
         private bool isSpawning = false;
 
+        public UnityEvent OnBattleStart;
+
         public void OnPlayerAttack(SwipeDirection direction)
         {
             var targetedLane = lanes.Find((lane) => lane.LaneDirection == direction);
@@ -18,8 +21,21 @@ namespace MagicSpace.LS
 
         public void StartBattle()
         {
+            OnBattleStart.Invoke();
+
+            foreach (var lane in lanes)
+            {
+                lane.ClearLanes();
+            }
+
             isSpawning = true;
             StartCoroutine(StartWaves());
+        }
+
+        public void StopBattle()
+        {
+            isSpawning = false;
+            StopCoroutine(StartWaves());
         }
 
         private void SpawnToLane()
@@ -35,18 +51,11 @@ namespace MagicSpace.LS
 
         private IEnumerator StartWaves()
         {
-            // spawningCurve = 1.5f;
             while (isSpawning)
             {
                 yield return new WaitForSeconds(1.5f);
                 SpawnToLane();
             }
-        }
-
-        private void Start()
-        {
-            // TODO: Add trigger to starting battle
-            StartBattle();
         }
     }
 }

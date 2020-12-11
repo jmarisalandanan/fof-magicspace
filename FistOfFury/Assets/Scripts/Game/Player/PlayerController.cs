@@ -1,16 +1,15 @@
 ﻿using System.Collections.Generic;
 using MagicSpace.Extensions;
+using MagicSpace.Foundation;
 using UnityEngine;
 
 namespace MagicSpace.LS
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField]
-        private Animation playerAnimator;
-
-        [SerializeField] 
-        private GameObject hitCollider;
+        [SerializeField] private Animation playerAnimator;
+        [SerializeField] private GameObject hitCollider;
+        [SerializeField] private GameEvent OnPlayerDead;
 
         private readonly List<string> attackAnimations = new List<string>();
         private Transform cachedTransform;
@@ -20,6 +19,11 @@ namespace MagicSpace.LS
             cachedTransform.eulerAngles = BattleUtils.GetVectorDirection(direction);
             playerAnimator.Play(attackAnimations.PickRandom());
             hitCollider.gameObject.SetActive(true);
+        }
+
+        public void Hit()
+        {
+            OnPlayerDead.Raise();
         }
 
         private void Awake()

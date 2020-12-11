@@ -126,3 +126,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 5259958503966504763}
+  OnEnemyAttack: {fileID: 11400000, guid: 96feed1bd05ec4486aab80786a5d1966, type: 2}
+  OnEnemyHit: {fileID: 11400000, guid: e7252dfd0dca9457f80e249a7569bc11, type: 2}
